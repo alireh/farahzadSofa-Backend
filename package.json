@@ -4,9 +4,12 @@
   "description": "",
   "main": "index.js",
   "scripts": {
-    "dev": "ts-node-dev --respawn src/server.ts",
     "build": "tsc",
-    "start": "node dist/server.js"
+    "start": "node dist/server.js",
+    "build:watch": "tsc -w",
+    "debug": "node --inspect src/server.ts",
+    "debug:break": "node --inspect-brk src/server.ts",
+    "dev": "tsx src/server.ts"
   },
   "keywords": [],
   "author": "",
@@ -24,6 +27,8 @@
     "@types/multer": "^2.0.0",
     "@types/node": "^24.10.1",
     "ts-node-dev": "^2.0.0",
-    "typescript": "^5.9.3"
+    "typescript": "^5.9.3",
+    "ts-node": "^10.9.1",
+    "nodemon": "^3.0.2"
   }
 }

@@ -46,8 +46,10 @@ const upload = multer({
 
 // داده‌های نمونه
 let siteData = {
-  about: 'این یک سایت نمونه است',
+  about: 'توی سوفامبل به دنبال 2 هدف اصلی هستیم  1- شما عزیزان بتونید خرید محصولات چوبی (انواع مبلمان - سرویس خواب - میز ناهار خوری - آینه کنسول و ….) رو با بهترین قیمت و بهترین کیفیت به صورت مستقیم و بدون واسطه از تولیدکنندگان (آنلاین - حضوری) خرید کنید.  2- تولیدکنندگان عزیز بتونن در فضای اینترنت، تولیدات خودشون رو به صورت مستقیم برای مصرف کننده نهایی و مشتریان عرضه کنند و تولید خودشون رو گسترش بدن.  همواره سعی میکنیم بهترین خدمات رو برای مشتریان و تولیدکنندگان فراهم کنیم  :heart:❤️',
   address: 'تهران، میدان انقلاب',
+  email:'farahzadfuniture@gmail.com',
+  phone:'09121234567',
   images: [
     { id: 1, url: '/uploads/sample1.jpg', title: 'تصویر اول' },
     { id: 2, url: '/uploads/sample2.jpg', title: 'تصویر دوم' }
@@ -76,6 +78,7 @@ app.post('/api/admin/upload', upload.single('image'), (req, res) => {
     const newImage = {
       id: siteData.images.length + 1,
       url: `/uploads/${req.file.filename}`,
+      type: req.body.type,
       title: req.body.title || 'تصویر جدید'
     };
     
